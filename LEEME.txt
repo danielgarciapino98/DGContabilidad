@@ -1,0 +1,34 @@
+DG CUADRES POS
+
+REQUISITOS
+- Windows 10/11 y Python 3.11 o superior.
+- Dependencias: PySide6 y ReportLab (instalar.bat las instala desde requirements.txt).
+
+INSTALACIÓN
+1. Cierra cualquier instancia anterior del programa.
+2. Haz una copia de seguridad de dgcuadres.db y dgcuadres_pos.db si ya tienes datos propios.
+3. Descomprime el ZIP en una carpeta normal, por ejemplo D:\programas\DGCUADRE.
+4. Ejecuta instalar.bat y después ejecutar.bat.
+
+DATOS
+- La aplicación principal utiliza dgcuadres.db, junto a main.py.
+- dgcuadres_pos.db se conserva porque venía en el proyecto; no se elimina.
+- Las migraciones son aditivas. Aun así, conserva una copia de seguridad antes de actualizar.
+
+FLUJO PRINCIPAL
+1. Configuración: revisa los datos del negocio y las tasas de cambio.
+2. Catálogo: crea productos o selecciona un producto existente para actualizar nombre, código, precio y costo. El stock se modifica desde Almacén para mantener el historial.
+3. Cuadre de Caja: abre el turno con el fondo inicial.
+4. POS: busca por nombre/código, agrega al ticket y cobra en CUP, USD, EUR o MLC, con efectivo o transferencia.
+5. Almacén: registra entradas, salidas, mermas y ajustes.
+6. Gastos: registra gastos asociados a una cuenta contable.
+7. Fichas de costo: añade insumos, cantidades, costos unitarios, rendimiento y margen; calcula costo por unidad y precio sugerido.
+8. Nómina: registra/actualiza trabajadores, calcula nóminas por período y marca pagos pendientes o pagados.
+9. Contabilidad: consulta diario, cuentas, períodos y balance de comprobación.
+10. Cuadre de Caja: declara el efectivo contado y cierra el turno. Puede exportar reportes PDF de ventas e inventario.
+
+IMPORTANTE
+- Los libros contables se expresan en CUP. Cada venta guarda la moneda y la tasa aplicada.
+- El precio sugerido de las fichas de costo es una recomendación; no cambia el precio de venta automáticamente.
+- El módulo de impuestos permite administrar tasas y descripciones, pero estas tasas todavía no se aplican automáticamente a las ventas.
+- Revisa la normativa local y los datos contables antes de utilizar reportes para declaraciones oficiales.
